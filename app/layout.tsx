@@ -6,10 +6,10 @@ import { AppWrapper } from "@/components/app-wrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Made with App Studio",
+  title: "Finegold",
   description: "Global gold & jewelry marketplace on Pi Network. Buy, sell and invest in gold, diamonds and NFT jewelry using Pi cryptocurrency. Verified sellers worldwide.",
   keywords: ["gold", "jewelry", "Pi Network", "NFT", "diamonds", "marketplace"],
-    generator: 'v0.app'
+  generator: 'v0.app'
 };
 
 export const viewport: Viewport = {
@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <script src="https://sdk.minepi.com/pi-sdk.js"></script>
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
