@@ -4,19 +4,26 @@ import { createContext, useContext, useState, useEffect, useCallback, ReactNode 
 declare global { interface Window { Pi: any; } }
 
 interface PiUser { uid: string; username: string; }
+interface Product { id: string; name: string; price_in_pi: number; }
 interface AuthCtx {
   user: PiUser | null;
   loading: boolean;
   isAuthenticated: boolean;
   hasError: boolean;
   authMessage: string;
+  products: Product[];
   signIn: () => Promise<void>;
   reinitialize: () => void;
 }
 
+const TESTNET_PRODUCTS: Product[] = [
+  { id: "69a8aa805bc526c57d3519dd", name: "Gold Purchase", price_in_pi: 1 },
+];
+
 const PiAuthContext = createContext<AuthCtx>({
   user: null, loading: true, isAuthenticated: false,
   hasError: false, authMessage: "Connecting to Pi Network...",
+  products: TESTNET_PRODUCTS,
   signIn: async () => {}, reinitialize: () => {},
 });
 
@@ -74,6 +81,7 @@ export function PiAuthProvider({ children }: { children: ReactNode }) {
     <PiAuthContext.Provider value={{
       user, loading, isAuthenticated: !!user,
       hasError, authMessage,
+      products: TESTNET_PRODUCTS,
       signIn: authenticate,
       reinitialize: authenticate,
     }}>
