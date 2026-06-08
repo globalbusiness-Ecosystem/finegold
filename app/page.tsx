@@ -18,6 +18,7 @@ import {
   Menu,
   Settings,
 } from "lucide-react";
+import { initializeGlobalPayment } from "@/lib/pi-payment";
 import { BrowseSection } from "@/components/sections/browse-section";
 import { GoldMarketSection } from "@/components/sections/gold-market-section";
 import { NftJewelrySection } from "@/components/sections/nft-jewelry-section";
@@ -84,6 +85,9 @@ export default function FineGoldApp() {
       return next;
     });
   }
+
+  // Init global pay function
+  useEffect(() => { initializeGlobalPayment(); }, []);
 
   // Prevent scroll when modal open
   useEffect(() => {
