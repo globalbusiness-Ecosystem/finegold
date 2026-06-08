@@ -13,8 +13,8 @@ export const BACKEND_URLS = {
   LOGIN_PREVIEW: `/api/signin`,
   GET_PRODUCTS: (appId: string) => `/api/products`,
   GET_PAYMENT: (paymentId: string) => `/api/payments/get?paymentId=${paymentId}`,
-  APPROVE_PAYMENT: (paymentId: string) => `/api/payments/approve`,
-  COMPLETE_PAYMENT: (paymentId: string) => `/api/payments/complete`,
+  APPROVE_PAYMENT: (paymentId: string) => `/api/payments/${paymentId}/approve`,
+  COMPLETE_PAYMENT: (paymentId: string) => `/api/payments/${paymentId}/complete`,
 } as const;
 
 export const PI_PLATFORM_URLS = {} as const;
